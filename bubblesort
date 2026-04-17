@@ -1,0 +1,68 @@
+package exercise_2;
+    class Mahasiswa {
+    String nama;
+    String nim;
+    int nilai;
+
+    Mahasiswa(String nama, String nim, int nilai) {
+        this.nama = nama;
+        this.nim = nim;
+        this.nilai = nilai;
+    }
+}
+
+public class bubblesort{
+
+    // Bubble Sort Descending (nilai terbesar ke kecil)
+    public static void bubbleSort(Mahasiswa[] data) {
+        for (int i = 0; i < data.length - 1; i++) {
+            for (int j = 0; j < data.length - 1 - i; j++) {
+                if (data[j].nilai < data[j + 1].nilai) {
+                    // tukar
+                    Mahasiswa temp = data[j];
+                    data[j] = data[j + 1];
+                    data[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    // Menampilkan data
+    public static void tampilkan(Mahasiswa[] data) {
+        System.out.println("Nama\t\t\tNIM\t\tNilai");
+        System.out.println("==========================================");
+        for (Mahasiswa m : data) {
+            System.out.println(m.nama + "\t" + m.nim + "\t" + m.nilai);
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+
+        Mahasiswa[] data = {
+            new Mahasiswa("Maya Sari", "2201013256", 95),
+            new Mahasiswa("Sinta Dewi Lestari", "2201012567", 92),
+            new Mahasiswa("Rizky Aditya", "2201013812", 90),
+            new Mahasiswa("Rina Ayu Putri", "2201012910", 88),
+            new Mahasiswa("Andi Pratama", "2201012345", 85),
+            new Mahasiswa("Nadia Safira", "2201013690", 81),
+            new Mahasiswa("Budi Santoso", "2201012789", 78),
+            new Mahasiswa("Putri Nirmala", "2201014035", 76),
+            new Mahasiswa("Dimas Prakoso", "2201013478", 72),
+            new Mahasiswa("Eko Wijaya", "2201013034", 65)
+        };
+
+        // Sebelum sorting
+        System.out.println("Data Sebelum Sorting:");
+        tampilkan(data);
+
+        // Proses Bubble Sort
+        bubbleSort(data);
+
+        // Setelah sorting
+        System.out.println("Data Setelah Bubble Sort (Descending):");
+        tampilkan(data);
+    }
+}
+    
+}
